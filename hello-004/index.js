@@ -10,7 +10,7 @@ friends[1].name = "임꺽정";
 // friends 배열의 장영실, 40, 010-4444-4444 인 데이터 추가
 friends.push({ name: "장영실", age: 40, tel: "010-4444-4444" });
 
-// 얕은복사를 하게되면 원본주소를 복사하는것이기 때문에 수정을하면 원본이 수정됨
+// 배열의 객체를 복사하게 되면 객체의 주소값만 복사됨
 const friends2 = friends;
 friends2[1].name = "성춘향";
 console.log(`friends`, friends);
