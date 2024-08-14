@@ -5,15 +5,15 @@ import {
   NAVER_CLIENT_SECRET,
 } from "../config/naver_secret.js";
 
-const getBooks = async (search) => {
-  const naverFetchOption = {
-    method: "get",
-    headers: {
-      "X-Naver-Client-Id": NAVER_CLIENT_ID,
-      "X-Naver-Client-Secret": NAVER_CLIENT_SECRET,
-    },
-  };
+const naverFetchOption = {
+  method: "get",
+  headers: {
+    "X-Naver-Client-Id": NAVER_CLIENT_ID,
+    "X-Naver-Client-Secret": NAVER_CLIENT_SECRET,
+  },
+};
 
+const getBooks = async (search) => {
   const queryString = `${NAVER_BOOK_URL}?query=${search}&display=10&start=1`;
   const response = await fetch(queryString, naverFetchOption);
   const json = await response.json();
@@ -21,4 +21,12 @@ const getBooks = async (search) => {
   return json.items;
 };
 
-export { getBooks };
+const getBook = async (isbn) => {
+  const queryString = `${NAVER_BOOK_URL}?query=${isbn}&display=1`;
+  const response = await fetch(queryString, naverFetchOption);
+  const json = await response.json();
+
+  return json.items[0];
+};
+
+export { getBooks, getBook };
