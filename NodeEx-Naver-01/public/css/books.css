@@ -1,4 +1,46 @@
 section.main {
+  margin: 5px auto;
+  padding: 1.5rem;
   width: 80%;
-  border: 1px solid blue;
+  display: flex;
+  gap: 3px;
+
+  article {
+    flex: 1;
+  }
+}
+
+article.list {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  overflow: auto;
+  form,
+  table {
+    width: 90%;
+    border: 1px solid #ddd;
+    margin: 0px auto;
+  }
+  /*
+input box 에 border-radius 를 설정할 때는 좌우 padding 을 좀 크게 설정해야함.
+*/
+  form input {
+    display: block;
+    width: 90%;
+    margin: 5px auto;
+    padding: 12px 20px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    outline: none;
+  }
+
+  table {
+    td,
+    th {
+      border-bottom: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+      white-space: nowrap;
+    }
+  }
 }
